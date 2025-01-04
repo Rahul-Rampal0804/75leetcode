@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+       int minPrice = INT_MAX; // Initialize to the highest possible value
+        int maxProfit = 0; // Initialize to 0 since we can't have negative profit
+
+        for (int price : prices) {
+            // Update the minimum price seen so far
+            if (price < minPrice) {
+                minPrice = price;
+            } 
+            
+            else {
+                maxProfit = max(maxProfit, price - minPrice);
+            }
+        }
+
+        return maxProfit; 
+    }
+};
